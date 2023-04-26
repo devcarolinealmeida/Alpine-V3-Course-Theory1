@@ -28,10 +28,26 @@
                     <b>x-bind</b>: Sets value of HTML attribute, e.g. <i>value, style, class</i>  etc." 
                 </p>
                 <h2>x-bind (:) - manipulate HTML attributes</h2>
+
+
                 <!-- Example 1 -->
                 <p class="text-lg"><b>Example 1:</b> Set value of input with object value</p>
-                <input class="border border-1 p-1 rounded shadow" value="" placeholder="some placeholder" type="text">
-                <span class="italic text-sm">Input value is bound to "myVar"</span>
+                <input x-data="{
+                    myInputValue : 'some value'
+                
+                }" class="border border-1 p-1 rounded shadow" :value="myInputValue" placeholder="some placeholder" type="text">
+                <span class="italic text-sm">Input value is bound to "myVar"</span><br>
+
+                <input x-data="{
+                    myInputValue : 'some value',
+                    isDisable : true
+                
+                }" class="border border-1 p-1 rounded shadow" 
+                :value="myInputValue" 
+                :disabled="isDisable"
+                placeholder="some placeholder" type="text">
+
+
                 <!-- Example 2 -->
                 <p class="text-lg mt-8"><b>Example 2:</b> Set style attribute</p>
                 <span>Some text</span><br>
