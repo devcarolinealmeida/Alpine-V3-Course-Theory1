@@ -50,8 +50,14 @@
 
                 <!-- Example 2 -->
                 <p class="text-lg mt-8"><b>Example 2:</b> Set style attribute</p>
-                <span>Some text</span><br>
+
+                <span x-data="{myStyle: 'font-weight:700'}"
+                :style="myStyle"
+                >Some text</span><br>
+
                 <span class="italic text-sm">font-weight is set by "myStyle"</span>
+
+
                 <!-- Example 3 -->
                 <p class="text-lg mt-8"><b>Example 3:</b> Set class attribute</p>
                 <div style="height: 4rem; width: 4rem; border: 1px solid black;"></div>
