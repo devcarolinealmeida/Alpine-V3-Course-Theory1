@@ -40,9 +40,18 @@
 
                 <!-- Example 2 -->
                 <p class="text-lg mt-10"><b>Example 2:</b>Text in Inputs can be influenced by both inputs</p>
-                <section>
-                    <input class="border border-1 p-1 rounded shadow" type="text">
-                    <input class="border border-1 p-1 rounded shadow" type="text">
+                <section x-data="{myValue: ''}">
+
+                    <input 
+                    x-model="myValue"
+                    :value="myValue"
+                    class="border border-1 p-1 rounded shadow" type="text">
+
+                    <input 
+                    x-model="myValue"
+                    :value="myValue"
+                    class="border border-1 p-1 rounded shadow" type="text">
+
                 </section>
 
                 <!-- Example 3 -->
