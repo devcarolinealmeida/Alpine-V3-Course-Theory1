@@ -31,10 +31,14 @@
                 <!-- Example 1: @click -->
                 <h3>Example1: @click</h3>
                 <p class="text-lg">Reset value of object on click</p>
-                <section>
-                    <input class="border border-1 p-1 rounded shadow" type="text">
-                    <span>Output</span>
-                    <span class="ml-2 bg-blue-200 p-2 rounded border border-1 cursor-pointer">Reset</span>
+                <section x-data="{myInput : ''}">
+                    <input 
+                    x-model="myInput"
+                    class="border border-1 p-1 rounded shadow" type="text">
+                    <span x-text="'Output: ' + myInput ">Output</span>
+                    <span 
+                    @click="myInput = ''"
+                    class="ml-2 bg-blue-200 p-2 rounded border border-1 cursor-pointer">Reset</span>
                 </section>
 
                 <!-- Example 2: @mouseenter, @click.outside (former @click.away in Alpinejs 2.x) -->
