@@ -89,9 +89,13 @@
                 <section class="h-32 flex" x-data="{ visible: false }">
                     <div>
                         <button
+                        @mouseenter="visible = true"
+                        @mouseleave="visible = false"
                         class="px-2 py-1 mr-8 h-8 bg-gray-200 hover:bg-gray-300 rounded focus:outline-none">Show Menu</button>
                         <div 
                         x-show="visible"
+                        x-transition:enter.duration.500ms
+                        x-transition:leave.duration.200ms.delay.200ms
                         class="w-24 h-16 bg-blue-200 p-1">This is a submenu</div>
                     </div>
                     <div
@@ -105,8 +109,8 @@
                         >> User has 3 seconds time to do something with the submenu</div>
                 </section>
 
-                <!-- Example 5: (gray) Exclusive Opacity & Scale -->
-                <h3 class="mt-8 text-base mb-1">Example 5: Exclusive Opacity & Scale</h3>
+                <!-- Example 5: (gray) Exclusive Opacity -->
+                <h3 class="mt-8 text-base mb-1">Example 5: Opacity</h3>
                 <section style="height:140px;" class="h-24 flex" x-data="{ visible: true }">
                     <div>
                         <button 
@@ -114,15 +118,34 @@
                         class="px-2 py-1 mr-8 mb-2 h-8 bg-gray-200 hover:bg-gray-300 rounded focus:outline-none">Toggle visibility</button>
                         <div 
                         x-show="visible"
+                        x-transition:enter.duration.1000ms.opacity
+                        x-transition:leave.duration.1000ms.opacity
                         class="w-24 h-24 bg-gray-400"></div>
                     </div>
                     <div class="text-sm mt-1">
                         Switch off scaling with opacity modifier:<br>
                         <b>x-transition:enter.duration.1000ms.opacity</b><br>
-                        <b>x-transition:leave.duration.1000ms.opacity</b><br><br>
+                        <b>x-transition:leave.duration.1000ms.opacity</b>
+                    </div>
+                </section>
+                
+                <!-- Example 5b: (gray) Exclusive Scale (only makes sense with scale = 0) -->
+                <h3 class="mt-8 text-base mb-1">Example 5b: Scale</h3>
+                <section style="height:140px;" class="h-24 flex" x-data="{ visible: true }">
+                    <div>
+                        <button 
+                        @click="visible = !visible"
+                        class="px-2 py-1 mr-8 mb-2 h-8 bg-gray-200 hover:bg-gray-300 rounded focus:outline-none">Toggle visibility</button>
+                        <div 
+                        x-show="visible"
+                        x-transition:enter.duration.1000ms.scale.0
+                        x-transition:leave.duration.600ms.scale.0
+                        class="w-24 h-24 bg-gray-400"></div>
+                    </div>
+                    <div class="text-sm mt-1">
                         Switch off opacity with scale modifier: (only makes sense with scale = 0)<br>
                         <b>x-transition:enter.duration.1000ms.scale.0</b><br>
-                        <b>x-transition:leave.duration.600ms.scale.0</b>
+                        <b>x-transition:leave.duration.600ms.scale.0</b><br>
                     </div>
                 </section>
 
