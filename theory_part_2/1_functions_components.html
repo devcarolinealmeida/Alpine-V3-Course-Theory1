@@ -42,7 +42,7 @@
                 <section>
                     <button
                     x-data="{
-                        msg : 'hello, world'
+                        msg : 'hello, world 1'
                     }"
                     @click="alert(msg)"
                     class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
@@ -51,9 +51,26 @@
                 </section>
 
                 <!-- Example 2: @click -->
+
+                <script>
+
+                    function myComponent() {
+                        return {
+                            hello() {
+                                alert('hello, world 2');
+                            },
+                        }
+
+                    }
+
+                </script>
+
                 <h3><b>Example 2:</b> Call a function on @click</h3>
                 <section>
-                    <button class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                    <button
+                    x-data="myComponent()"
+                    @click="hello()"
+                    class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
                         Say Hello!
                     </button>
                 </section>
