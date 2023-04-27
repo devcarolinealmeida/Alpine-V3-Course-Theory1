@@ -62,6 +62,11 @@
                             hello() {
                                 alert('hello, ' + this.myName);
                             },
+                        
+                            hello_param(hello_name) {
+                                alert('hello, ' + hello_name);
+                            },
+                        
                             sayMyName() {
                                 if (this.myName != '') {
                                     alert('are you ' + this.myName + '?');
@@ -81,6 +86,12 @@
                     @click="hello()"
                     class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
                         Say Hello!
+                    </button>
+                    <button
+                    x-data="myComponent('')"
+                    @click="hello_param('another name from parameters')"
+                    class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                        Say Hello (with parameters)!
                     </button>
                 </section>
 
