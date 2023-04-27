@@ -54,13 +54,13 @@
 
                 <script>
 
-                    function myComponent() {
+                    function myComponent(startName = '') {
 
                         return {
-                            myName: '',
+                            myName: startName,
 
                             hello() {
-                                alert('hello, world 2');
+                                alert('hello, ' + this.myName);
                             },
                             sayMyName() {
                                 if (this.myName != '') {
@@ -77,7 +77,7 @@
                 <h3><b>Example 2:</b> Call a function on @click</h3>
                 <section>
                     <button
-                    x-data="myComponent()"
+                    x-data="myComponent('Carol')"
                     @click="hello()"
                     class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
                         Say Hello!
