@@ -158,6 +158,8 @@
                         class="px-2 py-1 mr-8 mb-2 h-8 bg-gray-200 hover:bg-gray-300 rounded focus:outline-none">Toggle visibility</button>
                         <div 
                         x-show="visible"
+                        x-transition:enter.scale.0.origin.left.duration.1000ms
+                        x-transition:leave.scale.0.origin.top.right.duration.1000ms     
                         class="w-24 h-24 bg-red-400"></div>
                     </div>
                 </section>
