@@ -12,8 +12,57 @@
 
 <body>
 
+    <div class="container" x-data="{ accordion: 1 }">
 
+        <div class="single-acc">
+            <button
+            @click="accordion != 1 ? accordion = 1 : accordion = null"
+            >
+                <!-- Chevron Down -->
+                <svg :class="accordion == 1 ? 'hide' : 'show'"  xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+                <!-- Chevron Up -->
+                <svg :class="accordion == 1 ? 'show' : 'hide'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                </svg>
+                Accordion 1
+            </button>
+            <div class="acc-content"
+            x-ref="container1"
+            :style="accordion == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
+            >
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ducimus delectus assumenda porro autem itaque atque molestias nobis dolorum optio.</p>
+            </div>
+        </div>
 
+        <div class="single-acc">
+            <button
+            @click="accordion != 2 ? accordion = 2 : accordion = null"
+            >
+                <!-- Chevron Down -->
+                <svg :class="accordion == 2 ? 'hide' : 'show'"  xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+                <!-- Chevron Up -->
+                <svg :class="accordion == 2 ? 'show' : 'hide'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                </svg>
+                Accordion 2
+            </button>
+            <div class="acc-content"
+            x-ref="container1"
+            :style="accordion == 2 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
+            >
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic ducimus delectus assumenda porro autem itaque atque molestias nobis dolorum optio.</p>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 
