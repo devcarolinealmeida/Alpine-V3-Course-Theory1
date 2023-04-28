@@ -12,11 +12,40 @@
 
 <body>
 
+  <div class="card" x-data="{
+    isActive : false,
+    countDown : false
+  }">
 
+    <div x-show="!isActive">
+      <form 
+        @submit.prevent="isActive = true;
+        countDown = $refs.countdownInput.value;
+        window.setInterval(() => {
+          if(countDown > 0) countDown = countDown - 1;
+        }, 1000)"
+      >
+        <label>Start countdown</label>
+        <input x-ref="countdownInput" type="number" name="number" placeholder="20s" required>
+        <button type="submit">Start</button>
+      </form>
+    </div>
 
-
-
-
+    <div x-show="isActive">
+      
+      <template x-if="countDown > 0">
+        <div>
+          <h4>Counting down</h4>
+          <p x-text="countDown" class="countdown">2</p>
+        </div>
+      </template>
+      
+      <template x-if="countDown == 0">
+        <button @click="isActive = false">Countdown completed - return</button>
+      </template>
+      
+    </div>
+  </div>
 
 
 
