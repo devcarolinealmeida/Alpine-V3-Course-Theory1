@@ -13,9 +13,31 @@
 <body>
     
 
+    <div class="card" x-data="{ 
+        content : '', 
+        author: '',
 
-
+        refresh(){
+        window.location.reload()
+        }
+    }"
     
+        x-init="fetch('https://api.quotable.io/random')
+            .then(response => response.json())
+            .then(data => {
+                content = data.content
+                author = data.author
+            })
+        "    
+        >
+        <h2>Quote for the day</h2>
+        <div class="quote">
+            <blockquote x-text="content"></blockquote>
+            <p class="author" x-text="'-- ' + author + ' --'"></p>
+        </div>
+        <button @click="refresh" >New Quote</button>
+    </div>
+
 
 
 </body>
