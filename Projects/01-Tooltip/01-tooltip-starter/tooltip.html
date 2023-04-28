@@ -13,10 +13,17 @@
 <body>
     <!-- Tooltip 1 Component -->
 
+    <div x-data=" {show: false} " class="tooltip">
+        <button @mouseover="show = true" @mouseleave="show = false">Hover me</button>
+        <div x-show="show" class="tooltip-text">This a tooltip</div>
+    </div>
 
     <!-- Tooltip 2 Component -->
 
-
+    <div x-data=" {show: false} " class="tooltip">
+        <button @click="show = !show">Click me</button>
+        <div x-show="show" class="tooltip-text">You clicked</div>
+    </div>
 
 
 
