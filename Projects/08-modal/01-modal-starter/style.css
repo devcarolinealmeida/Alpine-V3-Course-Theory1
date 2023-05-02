@@ -10,3 +10,80 @@
 body {
   background-color: #25265f;
 }
+
+button.open {
+  position: fixed;
+  padding: .5rem .6rem;
+  border-radius: .5rem;
+  border: none;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.modal {
+  background-color: #ffff;
+  max-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: .5rem;
+  z-index: 99;
+}
+
+.modal-inner {
+  padding: 1.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+button.close {
+  border: none;
+  background-color: #25265f;
+  color: #FFF;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: .1em;
+}
+
+button.close svg {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.55;
+}
+
+.transition {
+  transition:  all 0.6s ease-in-out;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+[x-cloack] {
+  display: none;
+}

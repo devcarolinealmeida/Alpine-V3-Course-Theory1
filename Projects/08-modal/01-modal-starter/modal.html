@@ -10,8 +10,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body x-data="{ isOpen : false }"
+@keydown.escape="isOpen = false"
+>
     
+    <button 
+    @click="isOpen = true"
+    class="open">Open Modal</button>
+
+    <div 
+    x-show="isOpen"
+    @click.away="isOpen = false"
+    x-transition:enter="transition"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition"
+    x-transition:leave-end="opacity-0"
+    x-cloak
+
+    class="modal">
+        <div class="modal-inner">
+            <div class="modal-header">
+                <h3>Our Simple Modal</h3>
+                <button 
+                @click="isOpen = false"
+                class="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi voluptates itaque eaque, deleniti, facere accusantium odit sint ipsum quo sapiente a amet? Quam dolor provident at vero dolores facilis, deleniti, dignissimos voluptatem autem expedita fuga ab. Laborum, quia labore iusto quidem quisquam similique quos eveniet asperiores ex, nulla ducimus hic.</p>
+        </div>
+    </div>
+    
+    <div 
+    x-show="isOpen"
+    x-cloak
+    class="overlay"></div>
 
 
 
